@@ -1,0 +1,57 @@
+start server
+[python manage.py runserver]
+
+create app Users
+[python manage.py startapp users]
+
+create super user
+[python manage.py createsuperuser]
+
+create models in database migrations (create the migration work).
+[python manage.py makemigrations]
+
+migrate migrations (actual migrate)
+[python manage.py migrate]
+
+
+show sql of the models
+[python manage.py sqlmigration blog 0001]
+
+
+
+
+
+
+
+
+
+
+==============
+django shell
+[pytho manage.py shell]
+
+query table
+[
+>>> from blog.models import Post
+>>> from django.contrib.auth.models import User
+>>> User.objects.all()
+<QuerySet [<User: ayong>, <User: admin>]>
+>>> User.objects.first()
+<User: ayong>
+>>> User.objects.filter(username='ayong')
+<QuerySet [<User: ayong>]>
+>>> User.objects.filter(username='ayong').first()
+<User: ayong>
+>>> user = User.objects.filter(username='ayong').first()
+>>> user.id
+1
+>>> User.objects.get(id=1)
+<User: ayong>
+>>> post_1 = Post(title='blog1', content='First Post Content', author = user)
+>>> post_1.save()
+>>> Post.objects.all()
+
+
+
+]
+
